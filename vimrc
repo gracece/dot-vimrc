@@ -294,14 +294,19 @@ map <F5> :call Run()<CR>
 
 func! Run()
     exec "w"
-    if &filetype == "php"
+    if &filetype == "python"
+        exec "!python ./%"
+    elseif &filetype == "php"
         exec "!php %"
-    elseif &filetype == "py"
-        exec "!python %"
+    elseif &filetype == "markdown"
+        exec "!google-chrome % "
     elseif &filetype == "sh"
-        exec "! ./%"
+        exec "!bash ./%"
     elseif &filetype == 'cpp'
         exec "!g++ % -o %<"
+        exec "! ./%<"
+    elseif &filetype == 'c'
+        exec "!gcc % -o %<"
         exec "! ./%<"
     endif
 endfunction
