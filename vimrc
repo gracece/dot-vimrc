@@ -45,7 +45,7 @@ set showcmd                                                       " show typed c
 set title                                                         " show file in titlebar
 set laststatus=2                                                  " use 2 lines for the status bar
 set matchtime=2                                                   " show matching bracket for 0.2 seconds
-set matchpairs+=<:>                                               " specially for html
+"set matchpairs+=<:>                                               " specially for html
 " set relativenumber
 
 " Default Indentation
@@ -298,7 +298,7 @@ func! Run()
         exec "!python ./%"
     elseif &filetype == "php"
         exec "!php %"
-    elseif &filetype == "markdown"
+    elseif &filetype == "markdown" || &filetype == "html"
         exec "!google-chrome % "
     elseif &filetype == "sh"
         exec "!bash ./%"
@@ -328,7 +328,8 @@ autocmd BufReadPost *
             \ endif
 
 " w!! to sudo & write a file
-cmap w!! %!sudo tee >/dev/null %
+cmap w!! w !sudo tee > /dev/null %
+map <F7> !sudo tee > /dev/null %
 
 " Quickly edit/reload the vimrc file
 nmap <silent> <leader>ev :e $MYVIMRC<CR>

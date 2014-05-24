@@ -1,5 +1,9 @@
-Maple's Vim config
+Gracece's Vim config
 ==================
+### 说明
+
+本配置文件fork自 humiaozuzu ,根据自己的具体需求做了一些更改。另外neocomplcache建议在新版本的vim上使用neocomplete(需要lua支持),在服务器上编译
+具有lua特性的vim较为麻烦，所以有两个分支，master使用neocomplete,server使用neocomplcache。
 
 I use `vundle` to manage my plugins, which makes my `.vim` directory clean and tidy. If you are new to vim, the following two posts
 
